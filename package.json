@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/pritalb/odin-todolist/issues"
   },
-  "homepage": "https://github.com/pritalb/odin-todolist#readme"
+  "homepage": "https://github.com/pritalb/odin-todolist#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
 }
