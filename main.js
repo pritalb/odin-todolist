@@ -10,13 +10,23 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/domstuff.js":
+/*!*************************!*\
+  !*** ./src/domstuff.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"outputTask\": () => (/* binding */ outputTask),\n/* harmony export */   \"print\": () => (/* binding */ print)\n/* harmony export */ });\nfunction print() {\n    console.log('js working');\n};\n\nfunction outputTask (task) {\n    console.log(\n        `title: ${task.title}, description: ${task.description}, due date: ${task.duedate}, priority: ${task.priority}, done?: ${task.checkIfTaskDone()}`\n    );\n}\n\n\n\n//# sourceURL=webpack://odin-todolist/./src/domstuff.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todo */ \"./src/todo.js\");\n\n\nfunction main() {\n    const main_container = document.createElement('div');\n\n    (0,_todo__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n    return main_container;\n}\n\ndocument.body.appendChild(main());\n\n//# sourceURL=webpack://odin-todolist/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todo */ \"./src/todo.js\");\n/* harmony import */ var _domstuff__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./domstuff */ \"./src/domstuff.js\");\n\n\n\nfunction main() {\n    const main_container = document.createElement('div');\n    \n    (0,_domstuff__WEBPACK_IMPORTED_MODULE_1__.print)();\n    \n    let task = (0,_todo__WEBPACK_IMPORTED_MODULE_0__.taskFactory)('title', 'some description', new Date(2023, 4, 16), 'low');\n    (0,_domstuff__WEBPACK_IMPORTED_MODULE_1__.outputTask)(task);\n\n    return main_container;\n}\n\ndocument.body.appendChild(main());\n\n//# sourceURL=webpack://odin-todolist/./src/index.js?");
 
 /***/ }),
 
@@ -26,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tod
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction print() {\n    console.log('js working');\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (print);\n\n//# sourceURL=webpack://odin-todolist/./src/todo.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"taskFactory\": () => (/* binding */ taskFactory)\n/* harmony export */ });\nfunction taskFactory (title, description, duedate, priority) {\n    let finished = false;\n    const done = () => {\n        finished = true;\n        return finished;\n    };\n    const checkIfTaskDone = () => {\n        return finished;\n    };\n\n    return {\n        title, description, duedate, priority, checkIfTaskDone, done\n    };\n}\n\n\n\n//# sourceURL=webpack://odin-todolist/./src/todo.js?");
 
 /***/ })
 
