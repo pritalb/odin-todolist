@@ -1,5 +1,3 @@
-import { storeTask } from "./storagestuff";
-
 function task (title, description, duedate, priority) {
     let finished = false;
     const done = () => {
@@ -32,6 +30,9 @@ function project (name) {
     const addTask = (task) => {
         tasks[task.title] = task;
     }
+    const deleteTask = (taskTitle) => {
+        delete tasks[taskTitle];
+    }
     const getTask = (taskTitle) => {
         return tasks[taskTitle];
     }
@@ -40,7 +41,7 @@ function project (name) {
     }
 
     return {
-        name, addTask, getTask, getAllTasks,
+        name, addTask, getTask, getAllTasks, deleteTask,
     }
 }
 
