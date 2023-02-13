@@ -1,23 +1,3 @@
-function storeTask(task) {
-    localStorage.setItem(task.title, JSON.stringify(task));
-}
-
-function retrieveTask(taskTitle) {
-    return JSON.parse(localStorage.getItem(taskTitle));
-}
-
-function deleteTask(taskTitle) {
-    localStorage.removeItem(taskTitle);
-}
-
-function setCurrentProject(projectTitle) {
-    localStorage.setItem('currentProject', projectTitle);
-}
-
-function getCurrentProject() {
-    localStorage.getItem('currentProject');
-}
-
 let projectsContainer = (() => {
     let projects = {};
     const addProject = (project) => {
@@ -29,8 +9,33 @@ let projectsContainer = (() => {
     const getAllProjects = () => {
         return projects;
     }
+    const getCurrentProjectObject = () => {
+        return projects[getCurrentProject()];
+    }
 
-    return {projects, addProject, getProject, getAllProjects}
+    return {projects, addProject, getProject, getAllProjects, getCurrentProjectObject}
 })();
+
+function storeTask(task) {
+    // localStorage.setItem(task.title, JSON.stringify(task));
+    projectsContainer.getCurrentProjectObject().addTask(task);
+}
+
+function retrieveTask(taskTitle) {
+    // return JSON.parse(localStorage.getItem(taskTitle));
+    return projectsContainer.getCurrentProjectObject().getTask(taskTitle);
+}
+
+function deleteTask(taskTitle) {
+    return projectsContainer.getCurrentProjectObject().deleteTask(taskTitle);
+}
+
+function setCurrentProject(projectTitle) {
+    localStorage.setItem('currentProject', projectTitle);
+}
+
+function getCurrentProject() {
+    return localStorage.getItem('currentProject');
+}
 
 export { storeTask, retrieveTask, deleteTask, setCurrentProject, getCurrentProject, projectsContainer }

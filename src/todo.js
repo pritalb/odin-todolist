@@ -19,6 +19,7 @@ function taskFactory (title, description, duedate, priority) {
     if (typeof(title) === "string" && typeof(description) === "string" && typeof(priority) === "string" && typeof(duedate) === "object") {
         let newTask = task(title, description, duedate, priority);
         // storeTask(newTask);
+        projectsContainer.getCurrentProjectObject().addTask(newTask);
 
         return newTask;
     }
