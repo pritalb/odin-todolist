@@ -18,4 +18,19 @@ function getCurrentProject() {
     localStorage.getItem('currentProject');
 }
 
-export { storeTask, retrieveTask, deleteTask, setCurrentProject, getCurrentProject }
+let projectsContainer = (() => {
+    let projects = {};
+    const addProject = (project) => {
+        projects[project.name] = project;
+    }
+    const getProject = (projectTitle) => {
+        return projects[projectTitle];
+    }
+    const getAllProjects = () => {
+        return projects;
+    }
+
+    return {projects, addProject, getProject, getAllProjects}
+})();
+
+export { storeTask, retrieveTask, deleteTask, setCurrentProject, getCurrentProject, projectsContainer }

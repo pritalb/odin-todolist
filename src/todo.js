@@ -1,4 +1,4 @@
-import { setCurrentProject, getCurrentProject } from "./storagestuff";
+import { setCurrentProject, getCurrentProject, projectsContainer } from "./storagestuff";
 
 function task (title, description, duedate, priority) {
     let finished = false;
@@ -49,6 +49,7 @@ function project (name) {
 
 function projectFactory (name) {
     let newProject = project(name);
+    projectsContainer.addProject(newProject);
     setCurrentProject(newProject.name)
     return newProject;
 }

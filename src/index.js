@@ -1,3 +1,4 @@
+import { projectsContainer } from "./storagestuff";
 import { taskFactory, projectFactory } from "./todo";
 import { outputTask, outputProjectTasks } from "./domstuff";
 
@@ -19,6 +20,8 @@ function main() {
     console.log('after deleting a task');
     defaultProject.deleteTask(task1.title);
     outputProjectTasks(defaultProject);
+
+    console.log(projectsContainer.getAllProjects());
     return main_container;
 }
 
