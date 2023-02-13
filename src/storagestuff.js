@@ -10,4 +10,12 @@ function deleteTask(taskTitle) {
     localStorage.removeItem(taskTitle);
 }
 
-export { storeTask, retrieveTask, deleteTask }
+function setCurrentProject(projectTitle) {
+    localStorage.setItem('currentProject', projectTitle);
+}
+
+function getCurrentProject() {
+    localStorage.getItem('currentProject');
+}
+
+export { storeTask, retrieveTask, deleteTask, setCurrentProject, getCurrentProject }

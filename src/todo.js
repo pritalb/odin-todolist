@@ -1,3 +1,5 @@
+import { setCurrentProject, getCurrentProject } from "./storagestuff";
+
 function task (title, description, duedate, priority) {
     let finished = false;
     const done = () => {
@@ -46,7 +48,9 @@ function project (name) {
 }
 
 function projectFactory (name) {
-    return project(name);
+    let newProject = project(name);
+    setCurrentProject(newProject.name)
+    return newProject;
 }
 
 export { taskFactory, projectFactory };
