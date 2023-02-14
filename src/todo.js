@@ -20,11 +20,15 @@ function task (arg_title, arg_description, arg_duedate, arg_priority) {
     };
 }
 
-function taskFactory (title, description, duedate, priority) {
+function taskFactory (title, description, duedate, priority, projectName) {
     if (typeof(title) === "string" && typeof(description) === "string" && typeof(priority) === "string" && typeof(duedate) === "object") {
         let newTask = task(title, description, duedate, priority);
         // storeTask(newTask);
-        projectsContainer.getCurrentProjectObject().addTask(newTask);
+        if (projectName === undefined) {
+            projectsContainer.getCurrentProjectObject().addTask(newTask);
+        } else {
+            projectsContainer.getProject(projectName).addTask(newTask);
+        }
 
         return newTask;
     }
