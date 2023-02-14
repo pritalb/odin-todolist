@@ -21,7 +21,7 @@ function task (arg_title, arg_description, arg_duedate, arg_priority) {
 }
 
 function taskFactory (title, description, duedate, priority, projectName) {
-    if (typeof(title) === "string" && typeof(description) === "string" && typeof(priority) === "string" && typeof(duedate) === "object") {
+    // if (typeof(title) === "string" && typeof(description) === "string" && typeof(priority) === "string" && typeof(duedate) === "object") {
         let newTask = task(title, description, duedate, priority);
         // storeTask(newTask);
         if (projectName === undefined) {
@@ -31,10 +31,10 @@ function taskFactory (title, description, duedate, priority, projectName) {
         }
 
         return newTask;
-    }
+    // }
     
-    console.error('Wrong argument types! make sure title, description and priority are strings and duedate a Date object');
-    return null;
+    // console.error('Wrong argument types! make sure title, description and priority are strings and duedate a Date object');
+    // return null;
 }
 
 function project (name) {

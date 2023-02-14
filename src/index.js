@@ -1,18 +1,23 @@
 import { projectsContainer, deleteTask } from "./storagestuff";
 import { taskFactory, projectFactory } from "./todo";
-import { outputTask, outputProjectTasks, createTaskContainer, } from "./domstuff";
+import { outputTask, outputProjectTasks, createTaskContainer, createNewTaskForm } from "./domstuff";
 
 function main() {
     const main_container = document.createElement('div');
-    let project1 = projectFactory('project1');
+    main_container.id = 'main';
+    // let project1 = projectFactory('project1');
     let defaultProject = projectFactory('default');
     let current_project = projectsContainer.getCurrentProjectObject();
 
-    let task1 = taskFactory('title 1', 'some description 1', new Date(2023, 4, 16), 'low');
-    let task1DOM = createTaskContainer(task1);
-    main_container.appendChild(task1DOM);
+    let taskform = createNewTaskForm();
+
+    // let task1 = taskFactory('title 1', 'some description 1', new Date(2023, 4, 16), 'low');
+    // let task1DOM = createTaskContainer(task1);
+    // main_container.appendChild(task1DOM);
  
-    outputProjectTasks(current_project);
+    // outputProjectTasks(current_project);
+
+    main_container.appendChild(taskform);
 
     return main_container;
 }
