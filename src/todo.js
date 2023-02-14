@@ -1,7 +1,12 @@
 import { setCurrentProject, getCurrentProject, projectsContainer } from "./storagestuff";
 
-function task (title, description, duedate, priority) {
+function task (arg_title, arg_description, arg_duedate, arg_priority) {
     let finished = false;
+    let title = arg_title;
+    let description = arg_description;
+    let duedate = arg_duedate;
+    let priority = arg_priority;
+
     const done = () => {
         finished = true;
         return finished;
@@ -11,7 +16,7 @@ function task (title, description, duedate, priority) {
     };
 
     return {
-        title, description, duedate, priority, checkIfTaskDone, done
+        title, description, duedate, priority, checkIfTaskDone, done,
     };
 }
 
@@ -39,12 +44,17 @@ function project (name) {
     const getTask = (taskTitle) => {
         return tasks[taskTitle];
     }
+    const editTask = (title, newTitle, newDescription, newDuedate, newPriority) => {
+        let newTask = taskFactory(newTitle, newDescription, newDuedate, newPriority);
+        tasks[newTitle] = newTask;
+        delete tasks[title];
+    }
     const getAllTasks = () => {
         return tasks;
     }
 
     return {
-        name, addTask, getTask, getAllTasks, deleteTask,
+        name, addTask, getTask, getAllTasks, deleteTask, editTask,
     }
 }
 

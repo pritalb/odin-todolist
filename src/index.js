@@ -6,7 +6,7 @@ function main() {
     const main_container = document.createElement('div');
     let defaultProject = projectFactory('default');
     let current_project = projectsContainer.getCurrentProjectObject();
-    console.log(current_project);
+    // console.log(current_project);
     // console.log(getCurrentProject());
 
     let task1 = taskFactory('title 1', 'some description 1', new Date(2023, 4, 16), 'low');
@@ -22,9 +22,11 @@ function main() {
 
     console.log('after deleting a task');
     deleteTask(task1.title);
-    outputProjectTasks(defaultProject);
+    current_project.editTask(task2.title ,'edited title 2', 'new and improved description 2', new Date(2023, 5, 16), 'high')
+    // outputProjectTasks(defaultProject);
 
-    console.log(projectsContainer.getAllProjects());
+    console.log(current_project.getAllTasks())
+    // console.log(projectsContainer.getAllProjects());
     return main_container;
 }
 
