@@ -1,4 +1,5 @@
 import { taskFactory } from "./todo";
+import { projectsContainer } from "./storagestuff";
 
 function createTaskContainer (task) {
     let container = document.createElement('div');
@@ -59,7 +60,7 @@ function createNewTaskForm () {
     submitBtn.innerText = 'create';
     submitBtn.addEventListener('click', () => {
         let newTask = taskFactory(titleField.value, descriptionField.value, duedateField.value, priorityField.value);
-        outputTask(newTask);
+        outputProjectTasks(projectsContainer.getCurrentProjectObject());
     });
 
     container.appendChild(titleField);
@@ -81,7 +82,8 @@ function outputTask (task) {
 
 function outputProjectTasks (project) {
     console.log(`outputting all tasks in project: ${project.name}`);
-
+    
+    document.querySelector('#tasks-container').innerHTML = '';
     const projectTasks = project.getAllTasks()
     for (const taskName in projectTasks) {
         let task = projectTasks[taskName];
