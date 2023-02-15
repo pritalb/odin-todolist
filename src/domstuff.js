@@ -147,4 +147,21 @@ function outputProjectTasks (project) {
     };
 }
 
-export { outputTask, outputProjectTasks, createTaskContainer, createNewTaskForm, createProjectForm, };
+function createMainDOMContainer () {
+    const main_container = document.createElement('div');
+    main_container.id = 'main';
+
+    const tasksContainer = document.createElement('div');
+    tasksContainer.id = 'tasks-container';
+
+    const projectForm = createProjectForm();
+    const taskform = createNewTaskForm();
+
+    main_container.appendChild(projectForm);
+    main_container.appendChild(taskform);
+    main_container.appendChild(tasksContainer);
+
+    return main_container;
+}
+
+export { createMainDOMContainer };
