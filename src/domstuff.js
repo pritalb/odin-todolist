@@ -118,12 +118,29 @@ function createProjectForm () {
     projectCreateBtn.innerText = 'Create';
     projectCreateBtn.addEventListener('click', () => {
         let newProject = projectFactory(projectNameField.value);
+        showProjectsInProjectsTab();
         outputProjectTasks(newProject);
     })
 
     container.appendChild(projectNameLabel);
     container.appendChild(projectNameField);
     container.appendChild(projectCreateBtn);
+
+    return container;
+}
+
+function createProjectsTab () {
+    let container = document.createElement('div');
+    container.className = 'projects-tab';
+
+    const projectForm = createProjectForm();
+    container.appendChild(projectForm);
+
+    const projectsContainer_DOM = document.createElement('div');
+    projectsContainer_DOM.className = 'projects-tab-projects-container';
+
+    container.appendChild(projectForm);
+    container.appendChild(projectsContainer_DOM);
 
     return container;
 }
@@ -147,21 +164,37 @@ function outputProjectTasks (project) {
     };
 }
 
+function showProjectsInProjectsTab () {
+    let projectsContainer_DOM = document.querySelector('.projects-tab-projects-container');
+    projectsContainer_DOM.innerHTML = '';
+
+    let allProjects = projectsContainer.getAllProjects();
+
+    for (let project in allProjects) {
+        const projectDiv = document.createElement('div');
+        projectDiv.innerText = `${project}`;
+
+        projectsContainer_DOM.appendChild(projectDiv);
+    }
+}
+
 function createMainDOMContainer () {
     const main_container = document.createElement('div');
     main_container.id = 'main';
 
     const tasksContainer = document.createElement('div');
     tasksContainer.id = 'tasks-container';
-
-    const projectForm = createProjectForm();
+    
     const taskform = createNewTaskForm();
 
-    main_container.appendChild(projectForm);
+    const projectsTab = createProjectsTab();
+
+
+    main_container.appendChild(projectsTab);
     main_container.appendChild(taskform);
     main_container.appendChild(tasksContainer);
 
     return main_container;
 }
 
-export { createMainDOMContainer };
+export { createMainDOMContainer, showProjectsInProjectsTab };
