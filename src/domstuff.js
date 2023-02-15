@@ -40,17 +40,25 @@ function createTaskContainer (task) {
 function createNewTaskForm () {
     let container = document.createElement('div');
     container.className = 'new-task-form';
-
+    
+    let titleLabel = document.createElement('div');
+    titleLabel.innerText = 'Title:';
     let titleField = document.createElement('input');
     titleField.className = 'task-form-title-field';
 
+    let descriptionLabel = document.createElement('div');
+    descriptionLabel.innerText = 'Description:';
     let descriptionField = document.createElement('input');
     descriptionField.className = 'task-form-description-field';
 
+    let duedateLabel = document.createElement('div');
+    duedateLabel.innerText = 'Due Date:';
     let duedateField = document.createElement('input');
     duedateField.setAttribute('type', 'date');
     duedateField.className = 'task-form-duedate-field';
 
+    let priorityLabel = document.createElement('div');
+    priorityLabel.innerText = 'Priority:';
     let priorityField = document.createElement('select');
     priorityField.className = 'task-form-priority-field';
 
@@ -71,10 +79,26 @@ function createNewTaskForm () {
         outputProjectTasks(projectsContainer.getCurrentProjectObject());
     });
 
-    container.appendChild(titleField);
-    container.appendChild(descriptionField);
-    container.appendChild(duedateField);
-    container.appendChild(priorityField);
+    let titleFieldContainer = document.createElement('div');
+    titleFieldContainer.appendChild(titleLabel);
+    titleFieldContainer.appendChild(titleField);
+
+    let descriptionFieldContainer = document.createElement('div');
+    descriptionFieldContainer.appendChild(descriptionLabel);
+    descriptionFieldContainer.appendChild(descriptionField);
+
+    let duedateFieldContainer = document.createElement('div');
+    duedateFieldContainer.appendChild(duedateLabel);
+    duedateFieldContainer.appendChild(duedateField);
+
+    let priorityFieldContainer = document.createElement('div');
+    priorityFieldContainer.appendChild(priorityLabel);
+    priorityFieldContainer.appendChild(priorityField);
+
+    container.appendChild(titleFieldContainer);
+    container.appendChild(descriptionFieldContainer);
+    container.appendChild(duedateFieldContainer);
+    container.appendChild(priorityFieldContainer);
     container.appendChild(submitBtn);
 
     return container;
