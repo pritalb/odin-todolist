@@ -1,5 +1,5 @@
 import { taskFactory } from "./todo";
-import { projectsContainer } from "./storagestuff";
+import { projectsContainer, deleteTask } from "./storagestuff";
 
 function createTaskContainer (task) {
     let container = document.createElement('div');
@@ -21,10 +21,18 @@ function createTaskContainer (task) {
     priority.innerText = `${task.priority}`;
     // title, description, due date and priority
 
+    let deleteBtn = document.createElement('button');
+    deleteBtn.innerText = 'Delete';
+    deleteBtn.addEventListener('click', () => {
+        deleteTask(task.title);
+        outputProjectTasks(projectsContainer.getCurrentProjectObject());
+    });
+
     container.appendChild(title);
     container.appendChild(description);
     container.appendChild(duedate);
     container.appendChild(priority);
+    container.appendChild(deleteBtn);
     
     return container;
 }
