@@ -186,8 +186,12 @@ function showProjectsInProjectsTab () {
 
 function createSidebar () {
     const container = document.createElement('div');
+    const SiteName = document.createElement('div');
     const projectsTab = createProjectsTab();
 
+    SiteName.innerText = 'ToDo App';
+    
+    container.appendChild(SiteName);
     container.appendChild(projectsTab);
     return container;
 }
