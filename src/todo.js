@@ -1,4 +1,5 @@
 import { setCurrentProject, getCurrentProject, projectsContainer } from "./storagestuff";
+import { outputProjectTasks } from "./domstuff";
 
 function task (arg_title, arg_description, arg_duedate, arg_priority) {
     let finished = false;
@@ -65,7 +66,9 @@ function project (name) {
 function projectFactory (name) {
     let newProject = project(name);
     projectsContainer.addProject(newProject);
-    setCurrentProject(newProject.name)
+    setCurrentProject(newProject.name);
+    outputProjectTasks(newProject);
+    
     return newProject;
 }
 

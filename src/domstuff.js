@@ -1,5 +1,5 @@
 import { taskFactory, projectFactory } from "./todo";
-import { projectsContainer, deleteTask, setCurrentProject } from "./storagestuff";
+import { projectsContainer, deleteTask, setCurrentProject, getCurrentProject } from "./storagestuff";
 
 function createTaskContainer (task) {
     let container = document.createElement('div');
@@ -156,6 +156,7 @@ function outputTask (task) {
 function outputProjectTasks (project) {
     console.log(`outputting all tasks in project: ${project.name}`);
     
+    document.querySelector('.current-project-name').innerText = `${getCurrentProject()}`;
     document.querySelector('#tasks-container').innerHTML = '';
     const projectTasks = project.getAllTasks()
     for (const taskName in projectTasks) {
@@ -183,23 +184,43 @@ function showProjectsInProjectsTab () {
     }
 }
 
-function createMainDOMContainer () {
-    const main_container = document.createElement('div');
-    main_container.id = 'main';
+function createSidebar () {
+    const container = document.createElement('div');
+    const projectsTab = createProjectsTab();
+
+    container.appendChild(projectsTab);
+    return container;
+}
+
+function createContentArea () {
+    const container = document.createElement('div');
+
+    const currentProjectName = document.createElement('div');
+    currentProjectName.className = 'current-project-name';
 
     const tasksContainer = document.createElement('div');
     tasksContainer.id = 'tasks-container';
     
     const taskform = createNewTaskForm();
 
-    const projectsTab = createProjectsTab();
+    container.appendChild(currentProjectName);
+    container.appendChild(taskform);
+    container.appendChild(tasksContainer);
 
+    return container;
+}
 
-    main_container.appendChild(projectsTab);
-    main_container.appendChild(taskform);
-    main_container.appendChild(tasksContainer);
+function createMainDOMContainer () {
+    const main_container = document.createElement('div');
+    main_container.id = 'main';
+
+    const sidebar = createSidebar();
+    const content = createContentArea();
+
+    main_container.appendChild(sidebar);
+    main_container.appendChild(content);
 
     return main_container;
 }
 
-export { createMainDOMContainer, showProjectsInProjectsTab };
+export { createMainDOMContainer, showProjectsInProjectsTab, outputProjectTasks };

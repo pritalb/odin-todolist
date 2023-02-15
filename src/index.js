@@ -4,11 +4,10 @@ import { createMainDOMContainer, showProjectsInProjectsTab } from "./domstuff";
 
 function main() {
     document.addEventListener('DOMContentLoaded', () => {
+        const defaultProject = projectFactory('default');
         showProjectsInProjectsTab();
     })
-
     const main_container = createMainDOMContainer();
-    const defaultProject = projectFactory('default');
         
     return main_container;
 }
