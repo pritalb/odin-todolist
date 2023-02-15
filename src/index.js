@@ -1,6 +1,6 @@
 import { projectsContainer, deleteTask } from "./storagestuff";
 import { taskFactory, projectFactory } from "./todo";
-import { outputTask, outputProjectTasks, createTaskContainer, createNewTaskForm } from "./domstuff";
+import { outputTask, outputProjectTasks, createTaskContainer, createNewTaskForm, createProjectForm } from "./domstuff";
 
 function main() {
     const main_container = document.createElement('div');
@@ -8,6 +8,8 @@ function main() {
 
     const tasksContainer = document.createElement('div');
     tasksContainer.id = 'tasks-container';
+
+    const projectForm = createProjectForm();
 
     // let project1 = projectFactory('project1');
     let defaultProject = projectFactory('default');
@@ -21,6 +23,7 @@ function main() {
  
     // outputProjectTasks(current_project);
 
+    main_container.appendChild(projectForm);
     main_container.appendChild(taskform);
     main_container.appendChild(tasksContainer);
 

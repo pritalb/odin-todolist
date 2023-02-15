@@ -1,4 +1,4 @@
-import { taskFactory } from "./todo";
+import { taskFactory, projectFactory } from "./todo";
 import { projectsContainer, deleteTask } from "./storagestuff";
 
 function createTaskContainer (task) {
@@ -104,6 +104,30 @@ function createNewTaskForm () {
     return container;
 }
 
+function createProjectForm () {
+    let container = document.createElement('div');
+    
+    let projectNameField = document.createElement('input');
+    projectNameField.className = 'project-form-name-field';
+
+    let projectNameLabel = document.createElement('div');
+    projectNameLabel.innerText = 'Project Name:';
+    projectNameLabel.className = 'project-form-name-label';
+
+    let projectCreateBtn = document.createElement('button');
+    projectCreateBtn.innerText = 'Create';
+    projectCreateBtn.addEventListener('click', () => {
+        let newProject = projectFactory(projectNameField.value);
+        outputProjectTasks(newProject);
+    })
+
+    container.appendChild(projectNameLabel);
+    container.appendChild(projectNameField);
+    container.appendChild(projectCreateBtn);
+
+    return container;
+}
+
 function outputTask (task) {
     console.log(
         `title: ${task.title}, description: ${task.description}, due date: ${task.duedate}, priority: ${task.priority}, done?: ${task.checkIfTaskDone()}`
@@ -123,4 +147,4 @@ function outputProjectTasks (project) {
     };
 }
 
-export { outputTask, outputProjectTasks, createTaskContainer, createNewTaskForm, };
+export { outputTask, outputProjectTasks, createTaskContainer, createNewTaskForm, createProjectForm, };
