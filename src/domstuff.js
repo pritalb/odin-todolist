@@ -1,5 +1,5 @@
 import { taskFactory, projectFactory } from "./todo";
-import { projectsContainer, deleteTask } from "./storagestuff";
+import { projectsContainer, deleteTask, setCurrentProject } from "./storagestuff";
 
 function createTaskContainer (task) {
     let container = document.createElement('div');
@@ -173,6 +173,11 @@ function showProjectsInProjectsTab () {
     for (let project in allProjects) {
         const projectDiv = document.createElement('div');
         projectDiv.innerText = `${project}`;
+
+        projectDiv.addEventListener('click', () => {
+            setCurrentProject(project);
+            outputProjectTasks(projectsContainer.getProject(project));
+        })
 
         projectsContainer_DOM.appendChild(projectDiv);
     }
