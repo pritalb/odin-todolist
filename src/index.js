@@ -5,6 +5,10 @@ import { outputTask, outputProjectTasks, createTaskContainer, createNewTaskForm 
 function main() {
     const main_container = document.createElement('div');
     main_container.id = 'main';
+
+    const tasksContainer = document.createElement('div');
+    tasksContainer.id = 'tasks-container';
+
     // let project1 = projectFactory('project1');
     let defaultProject = projectFactory('default');
     let current_project = projectsContainer.getCurrentProjectObject();
@@ -18,6 +22,7 @@ function main() {
     // outputProjectTasks(current_project);
 
     main_container.appendChild(taskform);
+    main_container.appendChild(tasksContainer);
 
     return main_container;
 }

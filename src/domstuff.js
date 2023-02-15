@@ -76,7 +76,7 @@ function outputTask (task) {
         `title: ${task.title}, description: ${task.description}, due date: ${task.duedate}, priority: ${task.priority}, done?: ${task.checkIfTaskDone()}`
     );
     let taskContainer = createTaskContainer(task);
-    document.querySelector('#main').appendChild(taskContainer);
+    document.querySelector('#tasks-container').appendChild(taskContainer);
 }
 
 function outputProjectTasks (project) {
