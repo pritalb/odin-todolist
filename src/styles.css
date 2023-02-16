@@ -99,4 +99,5 @@
     align-self: center;
     font-weight: bolder;
     color: var(--foreground-color);
+    margin-bottom: 2vh;
 }

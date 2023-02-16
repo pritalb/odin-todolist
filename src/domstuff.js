@@ -41,6 +41,10 @@ function createNewTaskForm () {
     let container = document.createElement('div');
     container.className = 'new-task-form';
     
+    let formLabel = document.createElement('div');
+    formLabel.className = 'task-form-label';
+    formLabel.innerText = "Create a new task. Enter an existing task's title to edit it."
+
     let titleLabel = document.createElement('div');
     titleLabel.innerText = 'Title:';
     let titleField = document.createElement('input');
@@ -73,7 +77,7 @@ function createNewTaskForm () {
     priorityField.appendChild(priority3);
 
     let submitBtn = document.createElement('button');
-    submitBtn.innerText = 'create';
+    submitBtn.innerText = 'Done';
     submitBtn.addEventListener('click', () => {
         let newTask = taskFactory(titleField.value, descriptionField.value, duedateField.value, priorityField.value);
         outputProjectTasks(projectsContainer.getCurrentProjectObject());
@@ -95,6 +99,7 @@ function createNewTaskForm () {
     priorityFieldContainer.appendChild(priorityLabel);
     priorityFieldContainer.appendChild(priorityField);
 
+    container.appendChild(formLabel);
     container.appendChild(titleFieldContainer);
     container.appendChild(descriptionFieldContainer);
     container.appendChild(duedateFieldContainer);
