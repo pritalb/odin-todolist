@@ -13,4 +13,12 @@ module.exports = {
             title: 'To Do List',
         }),
     ],
+    module : {
+        rules: [
+            {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
+            },
+        ],
+    },
 };

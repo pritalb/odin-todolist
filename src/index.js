@@ -1,6 +1,7 @@
 import { projectsContainer, deleteTask } from "./storagestuff";
 import { projectFactory } from "./todo";
 import { createMainDOMContainer, showProjectsInProjectsTab } from "./domstuff";
+import './styles.css';
 
 function main() {
     document.addEventListener('DOMContentLoaded', () => {

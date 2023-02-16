@@ -189,6 +189,9 @@ function createSidebar () {
     const SiteName = document.createElement('div');
     const projectsTab = createProjectsTab();
 
+    container.className = 'sidebar';
+    SiteName.className = 'sitename';
+
     SiteName.innerText = 'ToDo App';
     
     container.appendChild(SiteName);
