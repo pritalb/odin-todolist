@@ -81,6 +81,10 @@
 .projects-tab-projects-container {
     display: flex;
     flex-direction: column;
-    gap: 0.5vh;
+    gap: 0.75vh;
     font-size: 1.25rem;
+}
+
+.current-project {
+    color: var(--accent-color) !important;
 }

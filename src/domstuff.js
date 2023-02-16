@@ -186,9 +186,14 @@ function showProjectsInProjectsTab () {
         const projectDiv = document.createElement('div');
         projectDiv.innerText = `${project}`;
 
+        if (project === getCurrentProject()) {
+            projectDiv.className = 'current-project';
+        }
+
         projectDiv.addEventListener('click', () => {
             setCurrentProject(project);
             outputProjectTasks(projectsContainer.getProject(project));
+            showProjectsInProjectsTab();
         })
 
         projectsContainer_DOM.appendChild(projectDiv);
