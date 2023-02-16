@@ -167,7 +167,7 @@ function outputTask (task) {
 function outputProjectTasks (project) {
     console.log(`outputting all tasks in project: ${project.name}`);
     
-    document.querySelector('.current-project-name').innerText = `${getCurrentProject()}`;
+    document.querySelector('.current-project-name').innerText = `Viewing tasks in ${getCurrentProject()}`;
     document.querySelector('#tasks-container').innerHTML = '';
     const projectTasks = project.getAllTasks()
     for (const taskName in projectTasks) {
