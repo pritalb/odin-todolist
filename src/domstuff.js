@@ -38,33 +38,36 @@ function createTaskContainer (task) {
 }
 
 function createNewTaskForm () {
+    let SuperContainer = document.createElement('div');
+    SuperContainer.className = 'task-form-container';
+
     let container = document.createElement('div');
     container.className = 'new-task-form';
     
     let formLabel = document.createElement('div');
     formLabel.className = 'task-form-label';
-    formLabel.innerText = "Create a new task. Enter an existing task's title to edit it."
+    formLabel.innerText = "Create a new task or Enter an existing task's title to update it."
 
     let titleLabel = document.createElement('div');
     titleLabel.innerText = 'Title:';
     let titleField = document.createElement('input');
-    titleField.className = 'task-form-title-field';
+    titleField.className = 'task-form-title-field task-form-field-text';
 
     let descriptionLabel = document.createElement('div');
     descriptionLabel.innerText = 'Description:';
     let descriptionField = document.createElement('input');
-    descriptionField.className = 'task-form-description-field';
+    descriptionField.className = 'task-form-description-field task-form-field-text';
 
     let duedateLabel = document.createElement('div');
     duedateLabel.innerText = 'Due Date:';
     let duedateField = document.createElement('input');
     duedateField.setAttribute('type', 'date');
-    duedateField.className = 'task-form-duedate-field';
+    duedateField.className = 'task-form-duedate-field task-form-field-date';
 
     let priorityLabel = document.createElement('div');
     priorityLabel.innerText = 'Priority:';
     let priorityField = document.createElement('select');
-    priorityField.className = 'task-form-priority-field';
+    priorityField.className = 'task-form-priority-field task-form-field-dropdown';
 
     let priority1 = document.createElement('option');
     priority1.innerText = 'High';
@@ -77,6 +80,7 @@ function createNewTaskForm () {
     priorityField.appendChild(priority3);
 
     let submitBtn = document.createElement('button');
+    submitBtn.className = 'task-form-submit-button';
     submitBtn.innerText = 'Done';
     submitBtn.addEventListener('click', () => {
         let newTask = taskFactory(titleField.value, descriptionField.value, duedateField.value, priorityField.value);
@@ -84,29 +88,35 @@ function createNewTaskForm () {
     });
 
     let titleFieldContainer = document.createElement('div');
+    titleFieldContainer.className = 'task-form-field-container';
     titleFieldContainer.appendChild(titleLabel);
     titleFieldContainer.appendChild(titleField);
 
     let descriptionFieldContainer = document.createElement('div');
+    descriptionFieldContainer.className = 'task-form-field-container';
     descriptionFieldContainer.appendChild(descriptionLabel);
     descriptionFieldContainer.appendChild(descriptionField);
 
     let duedateFieldContainer = document.createElement('div');
+    duedateFieldContainer.className = 'task-form-field-container';
     duedateFieldContainer.appendChild(duedateLabel);
     duedateFieldContainer.appendChild(duedateField);
 
     let priorityFieldContainer = document.createElement('div');
+    priorityFieldContainer.className = 'task-form-field-container';
     priorityFieldContainer.appendChild(priorityLabel);
     priorityFieldContainer.appendChild(priorityField);
 
-    container.appendChild(formLabel);
     container.appendChild(titleFieldContainer);
     container.appendChild(descriptionFieldContainer);
     container.appendChild(duedateFieldContainer);
     container.appendChild(priorityFieldContainer);
     container.appendChild(submitBtn);
-
-    return container;
+    
+    SuperContainer.appendChild(formLabel);
+    SuperContainer.appendChild(container);
+    
+    return SuperContainer;
 }
 
 function createProjectForm () {
