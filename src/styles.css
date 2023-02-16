@@ -3,15 +3,30 @@
     margin: 0;
 }
 
+:root {
+    --background-color: #f0f0f0;
+    --foreground-color: #04030F;
+    --accent-color: #f2542d;
+}
+
 #main {
     display: flex;
     flex-direction: row;
-    padding-left: 20px;
+    width: 100vw;
+    height: 100vh;
     padding-right: 20px;
+    background-color: var(--background-color);
 }
 
 .sidebar {
     width: 20vw;
     display: flex;
     flex-direction: column;
+    padding-left: 20px;
+    background-color: var(--foreground-color);
+    color: var(--background-color);
+}
+
+.sitename {
+    color: var(--accent-color);
 }
