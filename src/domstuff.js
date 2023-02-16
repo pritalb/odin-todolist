@@ -201,6 +201,7 @@ function createSidebar () {
 
 function createContentArea () {
     const container = document.createElement('div');
+    container.className = 'content-section'
 
     const currentProjectName = document.createElement('div');
     currentProjectName.className = 'current-project-name';
