@@ -106,15 +106,17 @@ function createNewTaskForm () {
 
 function createProjectForm () {
     let container = document.createElement('div');
-    
+    container.className = 'project-form';
+
     let projectNameField = document.createElement('input');
     projectNameField.className = 'project-form-name-field';
 
     let projectNameLabel = document.createElement('div');
-    projectNameLabel.innerText = 'Project Name:';
+    projectNameLabel.innerText = 'New Project Name:';
     projectNameLabel.className = 'project-form-name-label';
 
     let projectCreateBtn = document.createElement('button');
+    projectCreateBtn.className = 'project-form-create-button';
     projectCreateBtn.innerText = 'Create';
     projectCreateBtn.addEventListener('click', () => {
         let newProject = projectFactory(projectNameField.value);
@@ -136,11 +138,20 @@ function createProjectsTab () {
     const projectForm = createProjectForm();
     container.appendChild(projectForm);
 
+    const projectsSection = document.createElement('div');
+    projectsSection.className = 'projects-tab-projects-section';
+
+    const projectsSectionHeading = document.createElement('div');
+    projectsSectionHeading.className = 'projects-tab-projects-section-heading';
+    projectsSectionHeading.innerText = 'Projects';
+
     const projectsContainer_DOM = document.createElement('div');
     projectsContainer_DOM.className = 'projects-tab-projects-container';
-
+    
+    projectsSection.appendChild(projectsSectionHeading);
+    projectsSection.appendChild(projectsContainer_DOM);
     container.appendChild(projectForm);
-    container.appendChild(projectsContainer_DOM);
+    container.appendChild(projectsSection);
 
     return container;
 }

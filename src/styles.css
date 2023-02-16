@@ -19,11 +19,12 @@
 }
 
 .sidebar {
-    width: 20vw;
+    width: 18vw;
     display: flex;
     flex-direction: column;
-    padding-left: 20px;
+    padding-left: 2vw;
     padding-top: 20px;
+    /* padding-right: 20px; */
     background-color: var(--foreground-color);
     color: var(--background-color);
 }
@@ -36,4 +37,50 @@
     color: var(--accent-color);
     font-size: 32px;
     font-weight: bolder;
+}
+
+.project-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    padding-right: 2vw;
+    gap: 1vh;
+}
+
+.project-form-name-field {
+    /* width: max(15vw, 140px); */
+    height: max(3vh, 16px);
+    padding-left: 10px;
+    font-size: 1rem;
+    background-color: transparent;
+    color: var(--background-color);
+    border-style: solid;
+}
+
+.project-form-create-button {
+    width: max(6vw, 75px);
+    height: max(3vh, 16px);
+    background-color: transparent;
+    border-style: solid;
+    color: var(--background-color);
+    align-self: flex-end;
+}
+
+.projects-tab-projects-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+    gap: 1vh;
+}
+
+.projects-tab-projects-section-heading {
+    font-size: 1.75rem;
+    margin-bottom: 1vh;
+}
+
+.projects-tab-projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vh;
+    font-size: 1.25rem;
 }

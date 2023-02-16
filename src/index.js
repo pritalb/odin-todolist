@@ -5,7 +5,7 @@ import './styles.css';
 
 function main() {
     document.addEventListener('DOMContentLoaded', () => {
-        const defaultProject = projectFactory('default');
+        const defaultProject = projectFactory('Default');
         const tempTask = taskFactory('Task title', 'This is some task description', '2023/12/12', 'High');
         showProjectsInProjectsTab();
         outputProjectTasks(projectsContainer.getCurrentProjectObject());
