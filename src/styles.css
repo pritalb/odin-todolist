@@ -58,6 +58,7 @@
     background-color: transparent;
     color: var(--background-color);
     border-style: solid;
+    border-radius: 6px;
 }
 
 .project-form-create-button {
@@ -67,6 +68,7 @@
     border-style: solid;
     color: var(--background-color);
     align-self: flex-end;
+    border-radius: 6px;
 }
 
 .projects-tab-projects-section {
