@@ -20,7 +20,6 @@ function createTaskContainer (task) {
     let priority = document.createElement('div');
     priority.className = 'task-priority';
     priority.innerText = `${task.priority}`;
-    // title, description, due date and priority
 
     let deleteBtn = document.createElement('button');
     deleteBtn.className = 'task-delete-button';
@@ -236,15 +235,11 @@ function createContentArea () {
     const container = document.createElement('div');
     container.className = 'content-section'
 
-    // const currentProjectName = document.createElement('div');
-    // currentProjectName.className = 'current-project-name';
-
     const tasksContainer = document.createElement('div');
     tasksContainer.id = 'tasks-container';
     
     const taskform = createNewTaskForm();
 
-    // container.appendChild(currentProjectName);
     container.appendChild(taskform);
     container.appendChild(tasksContainer);
 

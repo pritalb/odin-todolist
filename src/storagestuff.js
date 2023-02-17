@@ -17,12 +17,10 @@ let projectsContainer = (() => {
 })();
 
 function storeTask(task) {
-    // localStorage.setItem(task.title, JSON.stringify(task));
     projectsContainer.getCurrentProjectObject().addTask(task);
 }
 
 function retrieveTask(taskTitle) {
-    // return JSON.parse(localStorage.getItem(taskTitle));
     return projectsContainer.getCurrentProjectObject().getTask(taskTitle);
 }
 
