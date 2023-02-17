@@ -159,11 +159,49 @@
     padding-left: 0.5vw;
 }
 
-.task-form-submit-button {
+.task-form-submit-button, .task-delete-button {
     height: 2.5vh;
     width: 4vw;
     background-color: transparent;
     color: var(--background-color);
     border-style: solid;
     border-radius: 6px;
+}
+
+#tasks-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh;
+}
+
+.task-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-between; */
+    height: 5vh;
+    width: 70vw;
+    border-radius: 12px;
+    gap: 2vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    background-color: var(--foreground-color);
+    color: var(--background-color);
+}
+
+.task-title {
+    width: 10vw;
+}
+
+.task-description {
+    width: 34vw;
+}
+
+.task-duedate {
+    width: 10vw;
+}
+
+.task-priority {
+    width: 6vw;
 }

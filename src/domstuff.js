@@ -3,6 +3,7 @@ import { projectsContainer, deleteTask, setCurrentProject, getCurrentProject } f
 
 function createTaskContainer (task) {
     let container = document.createElement('div');
+    container.className = 'task-container';
 
     let title = document.createElement('div');
     title.className = 'task-title';
@@ -22,6 +23,7 @@ function createTaskContainer (task) {
     // title, description, due date and priority
 
     let deleteBtn = document.createElement('button');
+    deleteBtn.className = 'task-delete-button';
     deleteBtn.innerText = 'Delete';
     deleteBtn.addEventListener('click', () => {
         deleteTask(task.title);
