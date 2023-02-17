@@ -48,7 +48,7 @@ function createNewTaskForm () {
     
     let formLabel = document.createElement('div');
     formLabel.className = 'task-form-label';
-    formLabel.innerText = "Create a new task or Enter an existing task's title to update it."
+    formLabel.innerText = "Create a new task or Enter an existing task's title to update it"
 
     let titleLabel = document.createElement('div');
     titleLabel.innerText = 'Title:';
@@ -184,7 +184,7 @@ function outputTask (task) {
 function outputProjectTasks (project) {
     console.log(`outputting all tasks in project: ${project.name}`);
     
-    document.querySelector('.current-project-name').innerText = `Viewing tasks in ${getCurrentProject()}`;
+    // document.querySelector('.current-project-name').innerText = `Viewing tasks in ${getCurrentProject()}`;
     document.querySelector('#tasks-container').innerHTML = '';
     const projectTasks = project.getAllTasks()
     for (const taskName in projectTasks) {
@@ -236,15 +236,15 @@ function createContentArea () {
     const container = document.createElement('div');
     container.className = 'content-section'
 
-    const currentProjectName = document.createElement('div');
-    currentProjectName.className = 'current-project-name';
+    // const currentProjectName = document.createElement('div');
+    // currentProjectName.className = 'current-project-name';
 
     const tasksContainer = document.createElement('div');
     tasksContainer.id = 'tasks-container';
     
     const taskform = createNewTaskForm();
 
-    container.appendChild(currentProjectName);
+    // container.appendChild(currentProjectName);
     container.appendChild(taskform);
     container.appendChild(tasksContainer);
 

@@ -94,13 +94,13 @@
     color: var(--accent-color) !important;
 }
 
-.current-project-name {
+/* .current-project-name {
     font-size: 2rem;
     align-self: center;
     font-weight: bolder;
-    color: var(--foreground-color);
+    color: var(--accent-color);
     margin-bottom: 2vh;
-}
+} */
 
 .new-task-form {
     display: flex;
